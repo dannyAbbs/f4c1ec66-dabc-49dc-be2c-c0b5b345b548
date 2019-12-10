@@ -1,0 +1,92 @@
+﻿@page
+@model Outlet_Manager.Pages.ProfileModel
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-horizontal">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <img src="~/img/avatar-1.jpg" alt="Profile image" class="img-thumbnail img-responsive" width="304" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <button class="btn btn-sm btn-outline-primary" id="btnChangePassword">Change Password</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-sm btn-outline-primary" id="btnChangePic">Change Picture</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <table class="table" id="tblProfile">
+                    <tr>
+                        <th>Full Name:</th>
+                        <td id="txtFullName"></td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td id="txtEmail"></td>
+                    </tr>
+                    <tr>
+                        <th>Phone:</th>
+                        <td id="txtPhone"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section modals{
+    <div class="modal" id="mdlPassword">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">Change Password</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <small class="text-primary">Password must contain a Capital letter, a number and must be at least 8 letters long</small>
+                    <div class="form-horizontal">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <label for="">Current Password</label>
+                                <input type="text" class="form-control form-control-sm" id="txtCurrentPassword">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <label for="">New Password</label>
+                                <input type="text" class="form-control form-control-sm" id="txtNewPassword">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="">Confirm New Password</label>
+                                <input type="text" class="form-control form-control-sm" id="txtConfirmNewPassword">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="btnSubmit">Change</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script src="~/js/PagesScripts/profile.js" asp-append-version="true"></script>
+}

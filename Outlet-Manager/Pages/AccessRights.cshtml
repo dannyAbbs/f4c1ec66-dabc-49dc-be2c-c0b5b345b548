@@ -1,0 +1,74 @@
+﻿@page
+@model Outlet_Manager.Pages.AccessRightsModel
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Search by name" id="txtSearch">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="button" id="btnSearch" disabled>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-sm" id="user-table"></table>
+    </div>
+</div>
+
+@section modals{
+    <div class="modal in" id="mdlUsers" data-keyboard="false" data-backdrop="static" style="display:block">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#home">Admin App</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu1">Client App</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane container active" id="home">
+                                Menu 1 <input type="checkbox" name="name" value="" />
+                            </div>
+                            <div class="tab-pane container fade" id="menu1">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script src="~/js/PagesScripts/AccessRights.js" asp-append-version="true"></script>
+}
+

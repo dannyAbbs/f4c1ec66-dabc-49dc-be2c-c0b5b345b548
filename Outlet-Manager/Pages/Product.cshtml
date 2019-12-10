@@ -1,0 +1,95 @@
+﻿@page
+@model Outlet_Manager.Pages.ProductModel
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Search by name" id="txtSearch">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="button" id="btnSearch" disabled>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-md-6 col-md-2">
+                <button class="btn btn-success float-right btn-sm" type="button" id="btnAdd">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-sm" id="product-table"></table>
+    </div>
+</div>
+
+
+@section modals{
+    <div class="modal" id="mdlProduct" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog" style="width: 600px !important; max-width: 600px !important">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <small class="text-primary">All fields are required</small>
+                    <div class="form-horizontal">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label for="">Code</label>
+                                <input type="text" class="form-control form-control-sm" id="txtCode">
+                            </div>
+                            <div class="col-md-8">
+                                <label for="">Name</label>
+                                <input type="text" class="form-control form-control-sm" id="txtName">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label for="">Unit Cost</label>
+                                <input type="text" class="commaSeparator form-control form-control-sm text-right" id="txtCost">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="">Unit Price</label>
+                                <input type="text" class="commaSeparator form-control form-control-sm text-right" id="txtPrice">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <label for="">Notes</label>
+                                <textarea class="form-control" id=txtNotes></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-4">
+                                <label for="">Status</label>
+                                <select class="form-control form-control-sm" id="cmbStatus"></select>
+                            </div>
+                            <div class="col-8">
+                                <label for="">Product Class</label>
+                                <select class="form-control form-control-sm" id="cmbProductClass"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts{
+    <script src="~/js/PagesScripts/product.js" asp-append-version="true"></script>
+}
+

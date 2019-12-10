@@ -1,0 +1,131 @@
+﻿@page
+@model Outlet_Manager.Pages.UserModel
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Search by name" id="txtSearch">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="button" id="btnSearch" disabled>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-md-6 col-md-2">
+                <button class="btn btn-success float-right btn-sm" type="button" id="btnAdd">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-sm" id="user-table"></table>
+    </div>
+</div>
+
+@section modals{
+    <div class="modal" id="mdlUsers" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog" style="width: 47vw !important; max-width:none !important">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#home">Basic Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu0">Outlets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu1">Admin Rights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu2">Client Rights</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane container active" id="home">
+                                <small class="text-primary">All fields are required</small>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <label for="">Username</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtUsername">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label for="">First Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtFName">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Last Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtLName">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label for="">Email</label>
+                                        <input type="email" class="form-control form-control-sm" id="txtEmail">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">Phone Number</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtPhone">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-4">
+                                        <label for="">Status</label>
+                                        <select class="form-control form-control-sm" id="cmbStatus"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane container fade outletCls" id="menu0">
+                                <div class="alert alert-success">
+                                    <input type="checkbox" name="name" value="" id="chkOutletId" /> Assign all outlets
+                                </div>
+                                <div class="row loadMenus" id="divOutletId"></div>
+                            </div>
+                            <div class="tab-pane container fade appMenus" id="menu1">
+                                <div class="alert alert-success">
+                                    <input type="checkbox" name="name" value="" id="chkAdminId" /> Assign all admin menus
+                                </div>
+                                <div class="row loadMenus" id="divAdminId"></div>
+                            </div>
+                            <div class="tab-pane container fade appMenus" id="menu2">
+                                <div class="alert alert-success">
+                                    <input type="checkbox" name="name" value="" id="chkClientId" /> Assign all client menus
+                                </div>
+                                <div class="row loadMenus" id="divClientId"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script src="~/js/PagesScripts/user.js" asp-append-version="true"></script>
+}
+
+

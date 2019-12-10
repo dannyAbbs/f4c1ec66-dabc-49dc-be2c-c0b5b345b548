@@ -1,0 +1,85 @@
+﻿@page
+@model Outlet_Manager.Pages.codeModel
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Search by name" id="txtSearch">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="button" id="btnSearch" disabled>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-md-6 col-md-2">
+                <button class="btn btn-success float-right btn-sm" type="submit" id="btnAdd">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-sm table-hover" id="codes-table"></table>
+    </div>
+</div>
+
+@section modals{
+    <div class="modal" id="mdlCodes" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <small class="text-primary">All fields are required</small>
+                    <div class="form-horizontal">
+                        <div class="form-row">
+                            <div class="col-md-4">
+                                <label for="">Code</label>
+                                <input type="text" class="form-control form-control-sm" id="txtCode">
+                            </div>
+                            <div class="col-md-8">
+                                <label for="">Name</label>
+                                <input type="text" class="form-control form-control-sm" id="txtName">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <label for="">Notes</label>
+                                <textarea type="text" class="form-control form-control-sm" rows="3" id="txtNotes"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-4">
+                                <label for="">Status</label>
+                                <select class="form-control form-control-sm" id="cmbStatus">
+                                    <option value="0">Select Status</option>
+                                    <option value="29794592-76B7-4A16-AE76-7042C1C8534D">Inactive</option>
+                                    <option value="f3355609-a598-433a-9edc-3137768fd52b">Active</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>    
+}
+
+@section Scripts{
+    <script src="~/js/PagesScripts/Codes.js" asp-append-version="true"></script>
+}
+

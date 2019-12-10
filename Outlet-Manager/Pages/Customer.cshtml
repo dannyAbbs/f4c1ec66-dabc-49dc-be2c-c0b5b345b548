@@ -1,0 +1,139 @@
+﻿@page
+@model Outlet_Manager.Pages.CustomerModel
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Search by name" id="txtSearch">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-success" type="button" id="btnSearch" disabled>
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-md-6 col-md-2">
+                <button class="btn btn-success float-right btn-sm" type="button" id="btnAdd">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-sm" id="customer-table"></table>
+    </div>
+</div>
+
+
+@section modals{
+    <div class="modal" id="mdlCustomers" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog" style="width: 600px !important; max-width: 600px !important">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <small class="text-primary">All fields are required</small>
+                    <div class="form-horizontal">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#home">Basic Details</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu1">Contact Person</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane container active" id="home">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <label for="">Code</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtCode">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="">Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtName">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-4">
+                                        <label for="">Pay Code</label>
+                                        <select class="form-control form-control-sm" id="cmbPayCode">
+                                            <option value="0">Select Pay Code</option>
+                                            <option value="1">Cash</option>
+                                            <option value="2">Card</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-8">
+                                        <label for="">Town (Location)</label>
+                                        <select class="form-control form-control-sm" id="cmbTown"></select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-4">
+                                        <label for="">Status</label>
+                                        <select class="form-control form-control-sm" id="cmbStatus"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane container fade" id="menu1">
+                                <div class="form-row">
+                                    <div class="col-6">
+                                        <label for="">First Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtFname">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="">Last Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtLname">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-12">
+                                        <label for="">Address</label>
+                                        <textarea class="form-control form-control-sm" rows="3" id="txtAddress"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-12">
+                                        <label for="">Email</label>
+                                        <input type="email" class="form-control form-control-sm" id="txtEmail" />
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <label for="">Telephone</label>
+                                        <input type="tel" class="form-control form-control-sm" id="txtTelephone" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Mobile No.</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtMobileNo" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts{
+    <script src="~/js/PagesScripts/customer.js" asp-append-version="true"></script>
+}
